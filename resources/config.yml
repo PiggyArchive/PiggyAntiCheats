@@ -1,0 +1,25 @@
+#                                      
+#,-.----.                              
+#\    /  \     ,---,         ,----..   
+#|   :    \   '  .' \       /   /   \  
+#|   |  .\ : /  ;    '.    |   :     : 
+#.   :  |: |:  :       \   .   |  ;. / 
+#|   |   \ ::  |   /\   \  .   ; /--`  
+#|   : .   /|  :  ' ;.   : ;   | ;     
+#;   | |`-' |  |  ;/  \   \|   : |     
+#|   | ;    '  :  | \  \ ,'.   | '___  
+#:   ' |    |  |  '  '--'  '   ; : .'| 
+#:   : :    |  :  :        '   | '/  : 
+#|   | :    |  | ,'        |   :    /  
+#`---'.|    `--''           \   \ .'   
+#  `---`                     `---`      
+
+punishment:
+  #How many points needed before a punishment
+  points-til-punishment: 10
+  #The punishment (kick, ban, ipban, none)
+  punishment: kick   
+message:
+  #Language
+  #Available Languages: eng
+  lang: eng                                    
