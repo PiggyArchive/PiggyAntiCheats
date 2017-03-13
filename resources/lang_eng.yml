@@ -1,1 +1,3 @@
 too-fast: "&c[PAC] {player} is going {speed} per second."
+fly: "&c[PAC] {player} is trying to fly."
+no-clip: "&c[PAC] {player} is trying to use no-clip."

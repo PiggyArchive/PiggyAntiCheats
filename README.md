@@ -7,4 +7,6 @@ Get rid of those pesky modders!
 * Speed detection
 
 # Mods Prevented
+* Fly
+* No clip
 * Speed

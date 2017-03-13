@@ -12,6 +12,12 @@ class AntiCheatsTick extends PluginTask {
 
     public function onRun($currentTick) {
         foreach ($this->plugin->getServer()->getOnlinePlayers() as $player) {
+            if(!isset($this->plugin->blocks[$player->getName()])){
+                $this->plugin->blocks[$player->getName()] = 0;
+            }
+            if(!isset($this->plugin->points[$player->getName()])){
+                $this->plugin->points[$player->getName()] = 0;
+            }
             $speed = $this->plugin->blocks[$player->getName()];
             if ($speed > 1) {
                 foreach ($this->plugin->getServer()->getOnlinePlayers() as $p) {
