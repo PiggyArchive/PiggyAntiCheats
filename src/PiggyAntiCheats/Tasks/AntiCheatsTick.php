@@ -41,7 +41,7 @@ class AntiCheatsTick extends PluginTask {
             $blocks = $this->plugin->blocksup[$player->getName()];
             $maxblock = $this->plugin->getConfig()->getNested("detection.jump");
             if ($player->getEffect(8) !== null) {
-                $maxblock = $maxblock + ($player->getEffect(1)->getAmplifier() / 8 + 0.46);
+                $maxblock = $maxblock + ($player->getEffect(8)->getAmplifier() / 8 + 0.46);
             }
             if ($blocks > $maxblock && $player->getAllowFlight() !== true) {
                 foreach ($this->plugin->getServer()->getOnlinePlayers() as $p) {
