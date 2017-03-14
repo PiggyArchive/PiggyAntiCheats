@@ -9,6 +9,7 @@ use pocketmine\utils\Config;
 
 class Main extends PluginBase {
     public $blocks;
+    public $blocksup;
     public $points;
     public $lang;
 
@@ -36,5 +37,5 @@ class Main extends PluginBase {
     public function getMessage($message) {
         return str_replace("&", "§", $this->lang->getNested($message));
     }
-    
+
 }

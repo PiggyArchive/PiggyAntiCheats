@@ -12,12 +12,13 @@ class EventListener implements Listener {
     public function __construct($plugin) {
         $this->plugin = $plugin;
     }
-    
+
     public function onMove(PlayerMoveEvent $event) {
         $player = $event->getPlayer();
         $from = $event->getFrom();
         $to = $event->getTo();
-        $this->plugin->blocks[$player->getName()] =+ $from->distance($to);
+        $this->plugin->blocks[$player->getName()] = + $from->distance($to);
+        $this->plugin->blocksup[$player->getName()] = + ($to->y - $from->y); //Returns negative if going down :)
     }
 
     public function onQuit(PlayerQuitEvent $event) {
@@ -25,16 +26,17 @@ class EventListener implements Listener {
         unset($this->plugin->blocks[$player->getName()]);
         unset($this->plugin->points[$player->getName()]);
     }
-    
-    public function onRecieve(DataPacketReceiveEvent $event){
+
+    public function onRecieve(DataPacketReceiveEvent $event) {
         $player = $event->getPlayer();
-        $packet = $event->getPacket();    
-        if($packet instanceof AdventureSettingsPacket){
-            if(($packet->allowFlight || $packet->isFlying) && $player->getAllowFlight() !== true){
+        $packet = $event->getPacket();
+        var_dump($packet);
+        if ($packet instanceof AdventureSettingsPacket) {
+            if (($packet->allowFlight || $packet->isFlying) && $player->getAllowFlight() !== true) {
                 $player->sendMessage(str_replace("{player}", $player->getName(), $this->plugin->getMessage("fly")));
                 $this->plugin->points[$player->getName()]++;
             }
-            if($packet->noClip && $player->isSpectator() !== true){
+            if ($packet->noClip && $player->isSpectator() !== true) {
                 $player->sendMessage(str_replace("{player}", $player->getName(), $this->plugin->getMessage("no-clip")));
                 $this->plugin->points[$player->getName()]++;
             }
