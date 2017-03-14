@@ -30,7 +30,6 @@ class EventListener implements Listener {
     public function onRecieve(DataPacketReceiveEvent $event) {
         $player = $event->getPlayer();
         $packet = $event->getPacket();
-        var_dump($packet);
         if ($packet instanceof AdventureSettingsPacket) {
             if (($packet->allowFlight || $packet->isFlying) && $player->getAllowFlight() !== true) {
                 $player->sendMessage(str_replace("{player}", $player->getName(), $this->plugin->getMessage("fly")));
