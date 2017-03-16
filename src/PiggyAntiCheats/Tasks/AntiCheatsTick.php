@@ -28,8 +28,14 @@ class AntiCheatsTick extends PluginTask {
             ;
             if ($player->getEffect(1) !== null) {
                 $maxspeed = $maxspeed + (0.20 * $player->getEffect(1)->getAmplifier());
+                if($player->isSprinting()){
+                    $maxspeed = $maxspeed + ($maxspeed * 0.25);
+                }
+                if($player->isSneaking()){
+                    $maxspeed = $maxspeed - ($maxspeed * 0.80);
+                }
             }
-            if ($speed > $maxspeed) {
+            if ($speed > $maxspeed && $player->getAllowFlight() !== true) {
                 foreach ($this->plugin->getServer()->getOnlinePlayers() as $p) {
                     if ($p->hasPermission("piggyanticheat.notify")) {
                         $p->sendMessage(str_replace("{speed}", $speed, str_replace("{player}", $player->getName(), $this->plugin->getMessage("too-fast"))));

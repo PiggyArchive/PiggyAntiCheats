@@ -17,7 +17,7 @@ class EventListener implements Listener {
         $player = $event->getPlayer();
         $from = $event->getFrom();
         $to = $event->getTo();
-        $this->plugin->blocks[$player->getName()] = +  pow($to->x - $from->x, 2) + pow($to->z - $from->z, 2); //Don't get distance for y
+        $this->plugin->blocks[$player->getName()] = + pow($to->x - $from->x, 2) + pow($to->z - $from->z, 2); //Don't get distance for y
         $this->plugin->blocksup[$player->getName()] = + ($to->y - $from->y); //Returns negative if going down :)
     }
 
@@ -40,6 +40,7 @@ class EventListener implements Listener {
                 $this->plugin->points[$player->getName()]++;
             }
             $player->sendSettings();
+            $event->setCancelled();
         }
     }
 
