@@ -16,6 +16,7 @@ class EventListener implements Listener {
 
     public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
+        if ($player->hasPermission("piggyanticheat.notify")) {
             $this->plugin->notified[$player->getName()] = true;
         }
     }

@@ -2,6 +2,7 @@
 
 namespace PiggyAntiCheats;
 
+use PiggyAntiCheats\Commands\PACCommand;
 use PiggyAntiCheats\Tasks\AntiCheatsTick;
 
 use pocketmine\plugin\PluginBase;
