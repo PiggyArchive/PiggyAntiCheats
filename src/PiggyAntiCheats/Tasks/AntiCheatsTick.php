@@ -22,6 +22,15 @@ class AntiCheatsTick extends PluginTask {
             if (!isset($this->plugin->points[$player->getName()])) {
                 $this->plugin->points[$player->getName()] = 0;
             }
+            //Fly
+            if ($player->getLevel()->getBlock($player->floor()->subtract(0, 1))->getId() == 0) {
+                if (!isset($this->secondinair[$player->getName()])) {
+                    $this->secondinair[$player->getName()] = 1;
+                }
+                $this->secondinair[$player->getName()]++;
+            } else {
+                $this->secondinair[$player->getName()] = 0;
+            }
             //Speed
             $speed = $this->plugin->blocks[$player->getName()];
             $maxspeed = $this->plugin->getConfig()->getNested("detection.speed");

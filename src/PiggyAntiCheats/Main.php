@@ -11,7 +11,7 @@ use pocketmine\utils\Config;
 class Main extends PluginBase {
     public $blocks;
     public $blocksup;
-    public $lasty;
+    public $secondinair;
     public $points;
     public $notified;
     public $lang;
