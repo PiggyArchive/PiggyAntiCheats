@@ -10,7 +10,9 @@ use pocketmine\utils\Config;
 class Main extends PluginBase {
     public $blocks;
     public $blocksup;
+    public $lasty;
     public $points;
+    public $notified;
     public $lang;
 
     public function onEnable() {
@@ -29,6 +31,7 @@ class Main extends PluginBase {
         } else {
             $this->lang = new Config($this->getDataFolder() . "lang_" . $this->getConfig()->getNested("message.lang") . ".yml");
         }
+        $this->getServer()->getCommandMap()->register('pac', new PACCommand('pac', $this));
         $this->getServer()->getScheduler()->scheduleRepeatingTask(new AntiCheatsTick($this), 20);
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
         $this->getLogger()->info("§aEnabled.");
