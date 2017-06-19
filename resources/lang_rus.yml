@@ -1,0 +1,7 @@
+too-fast: "&c[PAC] {player} идет {speed} в секунду."
+fly: "&c[PAC] {player} пытается летать."
+no-clip: "&c[PAC] {player} пытается использовать noclip."
+high-jump: "&c[PAC] {player} прыгает {blocks} в секунду."
+notifications:
+  enabled: "&c[PAC] &aУведомления включены."
+disabled: "&c[PAC] Уведомления отключены."
