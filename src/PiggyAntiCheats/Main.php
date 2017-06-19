@@ -2,21 +2,22 @@
 
 namespace PiggyAntiCheats;
 
-use PiggyAntiCheats\Commands\PACCommand;
 use PiggyAntiCheats\Tasks\AntiCheatsTick;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 
-class Main extends PluginBase {
-    public $blocks;
-    public $blocksup;
-    public $secondinair;
+/**
+ * Class Main
+ * @package PiggyAntiCheats
+ */
+class Main extends PluginBase
+{
     public $points;
-    public $notified;
     public $lang;
 
-    public function onEnable() {
+    public function onEnable()
+    {
         $this->saveDefaultConfig();
         if (!file_exists($this->getDataFolder() . "lang_" . $this->getConfig()->getNested("message.lang") . ".yml")) {
             if ($this->getResource("lang_" . $this->getConfig()->getNested("message.lang") . ".yml") !== null) {
@@ -32,13 +33,17 @@ class Main extends PluginBase {
         } else {
             $this->lang = new Config($this->getDataFolder() . "lang_" . $this->getConfig()->getNested("message.lang") . ".yml");
         }
-        $this->getServer()->getCommandMap()->register('pac', new PACCommand('pac', $this));
         $this->getServer()->getScheduler()->scheduleRepeatingTask(new AntiCheatsTick($this), 20);
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
         $this->getLogger()->info("§aEnabled.");
     }
 
-    public function getMessage($message) {
+    /**
+     * @param $message
+     * @return mixed
+     */
+    public function getMessage($message)
+    {
         return str_replace("&", "§", $this->lang->getNested($message));
     }
 

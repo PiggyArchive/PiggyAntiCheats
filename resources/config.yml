@@ -14,13 +14,6 @@
 #`---'.|    `--''           \   \ .'   
 #  `---`                     `---`      
 
-detection:
-  #Speed needed to be detected (blocks per second)
-  speed: 2
-  #Blocks up needed to be detected (blocks per second)  
-  jump: 2
-  #Distance above ground to detect fly
-  fly: 3
 punishment:
   #How many points needed before a punishment
   points-til-punishment: 10
