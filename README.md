@@ -3,7 +3,7 @@ Get rid of those pesky hackers!
 
 # Changelog
 
-###v1.0.0 REBOOT
+### v1.0.0 REBOOT
 * First release
 
 # Mods Prevented
