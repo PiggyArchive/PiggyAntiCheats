@@ -48,6 +48,7 @@ class EventListener implements Listener
                     }
                 }
                 $this->plugin->points[$player->getName()]++;
+                $player->sendSettings();
             }
             if ($packet->noClip && $player->isSpectator() !== true) {
                 foreach ($this->plugin->getServer()->getOnlinePlayers() as $p) {
@@ -56,8 +57,8 @@ class EventListener implements Listener
                     }
                 }
                 $this->plugin->points[$player->getName()]++;
+                $player->sendSettings();
             }
-            $player->sendSettings();
             $event->setCancelled();
         }
     }
